@@ -12,11 +12,11 @@ function twoSum(nums, target) {
 //Space complexity: O(1)
 
 // Two sum problem using hash table optimized
-function twoSumOptimized(nums, target){
+function twoSumOptimized(nums, target) {
     let obj = {};
-    for(let i = 0; i < nums.length; i++){
+    for (let i = 0; i < nums.length; i++) {
         let complement = target - nums[i];
-        if(obj.hasOwnProperty(complement)){
+        if (obj.hasOwnProperty(complement)) {
             return [obj[complement], i];
         }
         obj[nums[i]] = i;
@@ -25,5 +25,19 @@ function twoSumOptimized(nums, target){
 // Time complexity: O(n)
 //Spac complexity: O(n)
 
+// Two sum problem using hash table map optimized
+function twoSumOptimized2(nums, target) {
+    let mapt = new Map();
+    for (let i = 0; i < nums.length; i++) {
+        if (mapt.has(target - nums[i])) {
+            return [mapt.get(target - nums[i]), i];
+        }
+        mapt.set(nums[i], i);
+    }
+}
+// Time complexity: O(n)
+// Spac complexity: O(n)
+
 console.log(twoSum([0, 7, 2, 15], 9));
 console.log(twoSumOptimized([2, 7, 8, 15], 9));
+console.log(twoSumOptimized2([0, 9, 2, 7], 9));
