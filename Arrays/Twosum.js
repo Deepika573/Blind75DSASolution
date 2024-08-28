@@ -8,5 +8,22 @@ function twoSum(nums, target) {
         }
     }
 }
+//Time complexity: O(n^2)
+//Space complexity: O(1)
+
+// Two sum problem using hash table optimized
+function twoSumOptimized(nums, target){
+    let obj = {};
+    for(let i = 0; i < nums.length; i++){
+        let complement = target - nums[i];
+        if(obj.hasOwnProperty(complement)){
+            return [obj[complement], i];
+        }
+        obj[nums[i]] = i;
+    }
+}
+// Time complexity: O(n)
+//Spac complexity: O(n)
 
 console.log(twoSum([0, 7, 2, 15], 9));
+console.log(twoSumOptimized([2, 7, 8, 15], 9));
