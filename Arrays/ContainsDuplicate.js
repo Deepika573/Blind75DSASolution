@@ -19,7 +19,7 @@ function ContainsDuplicate2(nums) {
     if (obj.hasOwnProperty(nums[i])) {
       return true;
     } else {
-      obj[i] = true;
+      obj[nums[i]] = true;
     }
   }
   return false;
